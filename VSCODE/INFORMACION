@@ -1,0 +1,28 @@
+
+Existe visual studio opensurce => VSCODIUM
+
+#-> HTML
+Lorem #-> crear un parrafo en html
+Loremipsum10 #-> crear una parrafo con cantidad de palabras
+
+#-> SNIPPETS
+#-> para crear un snippet pasos
+presionar F1
+Buscar Configure User Snippets
+seleccionar lenguaje
+dentro escribir en json
+ejemplo:
+"reactComponent": {
+		"prefix": "reactComponent",
+		"body": [
+			"export const $1 = () => {",
+			"	return (",
+			"		$2",
+			"	)",
+			"}",
+		],
+		"description": "Crea un componente para react > 17",
+	}
+
+
+

@@ -1,0 +1,7 @@
+# las versiones pares tienen mantenibilidad mucho mas tiempo
+v16 v18 y tienen LTS
+
+# la version 18 tendra sus propio test run
+
+# nuevas funcionalidad en array
+[].findLast() #-> recorre de derecha a izquierda

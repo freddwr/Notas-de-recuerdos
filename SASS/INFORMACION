@@ -1,0 +1,8 @@
+# Dejar de use IMPORTS
+@imports 'rutadelarchivo' #-> estara en desuso desde el 2021
+
+# Carmbiar esto por @forward
+@forward 'rutadelarchivo' #-> al cambiar esto tambien se debe colocar el @use
+@use 'rutadelarchivo' as nombreallamar #-> donde utilizara las variales u otros
+@include rutadelarchivo||nombreallamar.function() #-> es sucede en los mixins
+color: rutadelarchivo||nombreallamar.$white #-> tanto en la asignacion de cololes u otros

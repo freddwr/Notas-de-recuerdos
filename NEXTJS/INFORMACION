@@ -1,0 +1,70 @@
+#-> como funciona los variables de entonrno .ENV
+file -> .env.local
+	#-> al realizar un console.log()
+	SECRET_VARIABLE=dominio.com #-> este funciona solamente dentro solo en el servidor y no en el cliente
+	NEXT_PUBLIC_VARIABLEPARANAVEGADOR=algundato #-> esto mostrara en los dos en el servidor y cliente
+
+#-> uso de los files .env
+file -> .env.local #-> database password stripe secret key ....
+file -> .env.develoment #-> stripe client key
+file -> .env.production #->
+
+#-> dentro del getServerSideProps(context)
+	el context tiene los datos que le envia el cliente como las rutas
+	ejempl0: localhost:3000/page3?query=2 -> esto en dentro de context en => query: { query: '2', codeman/* esto es el archivo [codeman].js*/: 'page3'}
+
+	tambien se puede redireccionar
+	return {
+		redirect: {
+			destination: 'https://google.com',
+			permanent: true,
+		}
+	}
+	tambien se puede negar con 404
+	return {
+		notFound: true
+	}
+
+#-> dentro de getStaticProps(context)
+	ver mas sobre REVALIDATE dentro de return
+	return {
+		props: {},
+		revalidate: 10
+	}
+
+#-> VER MAS DE getStaticPath y useRoutes de next/router
+
+#-> VER TAMBIEN dynamic de next/dynamic
+
+##=> OTROS
+dentro de la consola del navegador
+decodeURIComponent('') #-> decodifica la url de una imagen en https
+atob() #-> ver mas de esto
+
+
+#-> EMPEZANDO CON NEXTJS
+> npx create-next-app #-> luego a esto quedra mas informacion de la app
+> yarn add reactstrap bootstrap sass
+
+#-> CONFIGURACION DE SASS
+#-> colocar esto dentro del file _app.js
+import "bootstrap/dist/css/bootstrap.min.css";
+#-> luego si hay problemas agregar dentro de MyApp()
+	useEffect(() => {
+    	require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  	}, []);
+
+#-> INFORMACION ADICIONAL - SE PUEDE MOVER LA CARPETA PAGES/ Y STYLES/ DENTRO DE SRC/ Y NO HABRA PROBLEMAS
+
+#-> opciones de desarrollo
+export default (req, res) => {
+	res.json('tareas')
+}
+
+# INTERNACIONALIZACION VS LOCALIZACION
+
+#-> INTERNACIONALIZACION es el proceso de diseniar software de manera de manera que pueda adaptarse a diferentes idiomas y regiones
+
+numeronico : i18n => internationalization
+
+

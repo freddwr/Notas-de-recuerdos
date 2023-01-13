@@ -1,0 +1,12 @@
+## PRISMA
+#-> para insteractuar con la base de forma directa
+npx prisma studio
+
+#-> para iniciar con prisma
+npx prisma init #-> creara una carpeta prisma
+
+#-> para generar
+npx prisma generate
+
+#-> para migrar a la base de datos
+npx prisma migrate dev --name comentario

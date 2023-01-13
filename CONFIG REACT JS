@@ -1,0 +1,240 @@
+
+##--##--CONFIGURACION TOTAL CREATE REACT APP y OTROS
+
+##ENTORNO DE DESARROLLO
+.env
+BROWSER=none
+
+.env.production
+REACT_APP_API_URL='//cybotcapacitacion.com'
+
+.env.development
+REACT_APP_API_URL='http://localhost:8000'
+
+##################################################################
+##################################################################
+##--##--CONFIGURACION ESLINT
+## INTALAR EXTENSION ESLINT VSCODE
+
+## INSTALAR ESLINT
+yarn add eslint -D
+npx eslint --init
+---pasos seleccionar
+-To check syntax, find problems, and enforce code style			~ENTER
+-JavaScript modules (import/export)								~ENTER
+-React															~ENTER
+-Use Typescript? NO												~ENTER
+-Use Typescript? NO												~ENTER
+-Where does your code run?
+con la tecla "a" seleccionar NODE Y BROWSER						~ENTER
+-Use a popular style guide										~ENTER
+-Standard: https://github.com/standard/standard					~ENTER
+-JavaScript														~ENTER
+-Would you like to install them now with npm? NO				~ENTER
+
+----Successfully created .eslintrc.js
+
+
+##INSTALAR
+yarn add -D
+eslint-plugin-react
+eslint-config-standard
+eslint eslint-plugin-import
+eslint-plugin-n
+eslint-plugin-promise
+eslint-config-prettier
+eslint-plugin-jsdoc
+jsdoc-tsimport-plugin
+better-docs
+
+##REACT NATIVE
+yarn add -D
+babel-eslint
+eslint-config-standard
+eslint-config-standard-jsx
+eslint-config-standard-react
+eslint-plugin-import
+eslint-plugin-node
+eslint-plugin-react
+
+##CONFIGURACION ESLINTIGNORE
+.eslintignore
+build/
+dist/
+node_module/
+
+##CONFIGURACION ESLINT
+.eslintrc
+const RULES = {
+	ON: 'on',
+	OFF: 'off',
+	WARN: 'warn',
+}
+module.exports = {
+	env: {
+		browser: true,
+		es2021: true,
+		node: true,
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
+	},
+	extends: [
+		'plugin:react/recommended',
+		#  'plugin:react/jsx-runtime',
+		'standard',
+		'prettier',
+	],
+	parserOptions: {
+		ecmaFeatures: {
+			jsx: true,
+		},
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+	},
+	plugins: ['react'],
+	rules: {
+		# 'no-tabs': 0,
+		# indent: ['error', 'tab'],
+		'react/prop-types': RULES.OFF,
+		'react/react-in-jsx-scope': RULES.OFF,
+		# 'space-before-function-paren': ['error', 'never'],
+		# 'space-before-function-paren': ['error', 'never'],
+		'comma-dangle': [
+			'error',
+			{
+				arrays: 'always-multiline',
+				objects: 'always-multiline',
+				imports: 'always-multiline',
+				exports: 'always-multiline',
+				functions: 'never',
+			},
+		],
+	},
+}
+
+
+##################################################################
+##################################################################
+##INTALAR CONFIG ESLINT CON GIT
+npx mrm lint-staged
+
+## ESTO ESTA A PRUEBA
+// lint-staged.config.js
+module.exports = {
+  // Type check TypeScript files
+  '**/*.(ts|tsx)': () => 'yarn tsc --noEmit',
+
+  // Lint then format TypeScript and JavaScript files
+  '**/*.(ts|tsx|js)': (filenames) => [
+    `yarn eslint --fix ${filenames.join(' ')}`,
+    `yarn prettier --write ${filenames.join(' ')}`,
+  ],
+
+  // Format MarkDown and JSON
+  '**/*.(md|json)': (filenames) =>
+    `yarn prettier --write ${filenames.join(' ')}`,
+}
+
+##################################################################
+##################################################################
+##--##--CONFIGURACION PRETIER
+.prettierignore
+node_module/
+build/
+dist/
+public/
+
+.prettierrc
+{
+	"trailingComma": "es5",
+	"tabWidth": 4,
+	"semi": false,
+	"singleQuote": true,
+	"useTabs": true,
+	"jsxSingleQuote": true,
+	"bracketSpacing": true,
+	"bracketSameLine": false,
+	"arrowParens": "avoid",
+	"requirePragma": false
+}
+
+
+
+##################################################################
+##################################################################
+##--##--CONFIGURACION VSCODE
+.vscode/settings.json
+{
+	// This one forces the tab to be **space**
+	"editor.insertSpaces": false,
+	// "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+	"editor.formatOnSave": true,
+	"eslint.alwaysShowStatus": true,
+	// "files.autoSave": "onFocusChange"
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+	// "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+	// "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true
+}
+
+
+
+
+
+##################################################################
+##################################################################
+##--##--CONFIGURACION JSCONFIG
+jsconfig.json
+{
+    "compilerOptions": {
+        "baseUrl": "src"
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}
+
+
+
+##################################################################
+##################################################################
+## ADD FLOWCONFIG
+.flowconfig
+[ignore]
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.mjs
+module.file_ext=.json
+module.file_ext=.sass
+module.file_ext=.scss
+module.name_mapper='^\([^\.].*\)$' -> '<PROJECT_ROOT>/src/\1'
+[strict]
+
+
+
+
+##################################################################
+##################################################################
+##--##--CONFIGURACION PACKAJE JSON
+"scripts": {
+	...,
+	"lint-show": "eslint src",
+	"lint-fix": "eslint . --fix --ext .js,.jsx",
+	"prettier-show": "prettier . --check",
+	"prettier-write": "prettier . --write",
+}
+
+
+##################################################################
+##################################################################
