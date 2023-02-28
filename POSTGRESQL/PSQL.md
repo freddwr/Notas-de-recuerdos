@@ -47,3 +47,11 @@
 ```terminal
  	> \d nombredelatabla
 ```
+
+#### TIMEZONE
+
+```
+	>show timezone;
+	>set time zone 'US/Central';
+	>set timezone='US/Central';
+```

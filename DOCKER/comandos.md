@@ -98,3 +98,23 @@ docker run -d --name nombredelcontenedor --memory 1g imagenautilizar
 
 # para ver los recursos que utiliza cada contenedor IMPORTANTE
 > docker stats
+
+# para remover o eliminar contenedores todos
+> docker container prune
+
+# para remover o eliminar todo imagenes y contenedores
+> docker system prune -a
+
+
+On Alpine Linux systems:
+# docker exec -it NGINX_container_ID sh
+On Debian systems:
+
+# docker exec -it NGINX_container_ID bash
+
+
+> Si desea eliminar TODO su caché, primero debe asegurarse de que todos los contenedores estén detenidos y eliminados, ya que no puede eliminar una imagen en uso por un contenedor. pues algo parecido
+
+docker kill $(docker ps -q)
+docker_clean_ps
+docker rmi $(docker images -a -q)
